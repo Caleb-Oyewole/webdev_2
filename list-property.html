@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Property — Houdy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="landing.html" class="logo"><span class="dot"></span>Houdy</a>
+            <ul class="nav-links">
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="landing.html#why">Why Houdy</a></li>
+                <li><a href="landing.html#steps">How it works</a></li>
+                <li><a href="landing.html#testimonials">Reviews</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="signin.html" class="signin">Sign in</a>
+                <a href="list-property.html" class="btn btn-primary">List your property</a>
+            </div>
+        </nav>
+    </header>
+    <section class="form-page">
+        <div class="wrap">
+            <div class="form-shell">
+                <span class="eyebrow">Host with Houdy</span>
+                <h2>Create a property listing</h2>
+                <form id="property-form">
+                    <div class="form-field">
+                        <label for="title">Listing title</label>
+                        <input id="title" name="title" type="text" placeholder="Sunny studio near campus" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="tag">Property name</label>
+                        <input id="tag" name="tag" type="text" placeholder="Example: Alba Lodge" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="location">Location</label>
+                        <input id="location" name="location" type="text" placeholder="Main Campus district" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="type">Type</label>
+                        <input id="type" name="type" type="text" placeholder="Studio, Shared, Ensuite" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="price">Monthly rent (₦)</label>
+                        <input id="price" name="price" type="number" placeholder="85000" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="rating">Rating</label>
+                        <input id="rating" name="rating" type="number" step="0.1" min="1" max="5" placeholder="4.8"
+                            required>
+                    </div>
+                    <div class="form-field">
+                        <label for="badge">Badge</label>
+                        <input id="badge" name="badge" type="text" placeholder="Verified, New listing, Ensuite">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit listing</button>
+                        <a href="landing.html" class="btn btn-ghost">Back to home</a>
+                    </div>
+                    <div id="property-status" class="form-status"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
