@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname), { index: false }));
 
 const listings = [
     {
@@ -161,9 +161,13 @@ app.post('/api/listings', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'landing.html'));
 });
 
-app.listen(PORT, () => {
-    console.log(`Houdy backend running at http://localhost:${PORT}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Houdy backend running at http://localhost:${PORT}`);
+    });
+}
+
+module.exports = app;
