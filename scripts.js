@@ -59,7 +59,7 @@ async function loadListings(query = {}) {
 
 function attachNewsletter() {
     const form = document.querySelector('#newsletter-form');
-    const status = document.querySelector('#newsletter-status');
+    const status = document.querySelector('#newsletter-status') || document.querySelector('#newsletter-message');
     if (!form) return;
 
     form.addEventListener('submit', async (event) => {
