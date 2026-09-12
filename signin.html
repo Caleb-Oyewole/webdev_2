@@ -28,26 +28,44 @@
             </div>
         </nav>
     </header>
-    <section class="form-page">
+    <section class="auth-page">
         <div class="wrap">
-            <div class="form-shell">
-                <span class="eyebrow">Welcome back</span>
-                <h2>Sign in to your Houdy account</h2>
-                <form id="signin-form">
-                    <div class="form-field">
-                        <label for="email">Email address</label>
-                        <input id="email" name="email" type="email" placeholder="you@school.edu" required>
+            <div class="auth-shell">
+                <div class="auth-copy">
+                    <span class="eyebrow">Welcome back</span>
+                    <h1>Sign in to your Houdy account</h1>
+                    <p>Track saved rooms, compare options, and keep your student housing search moving without the
+                        noise.</p>
+                    <div class="mini-proof-grid">
+                        <div>
+                            <strong>3,897+</strong>
+                            <span>students matched</span>
+                        </div>
+                        <div>
+                            <strong>48h</strong>
+                            <span>average response</span>
+                        </div>
                     </div>
-                    <div class="form-field">
-                        <label for="password">Password</label>
-                        <input id="password" name="password" type="password" placeholder="Enter your password" required>
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Sign in</button>
-                        <a href="/" class="btn btn-ghost">Back to home</a>
-                    </div>
-                    <div id="signin-status" class="form-status"></div>
-                </form>
+                </div>
+
+                <div class="auth-form-panel">
+                    <form id="signin-form">
+                        <div class="form-field">
+                            <label for="email">Email address</label>
+                            <input id="email" name="email" type="email" placeholder="you@school.edu" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="password">Password</label>
+                            <input id="password" name="password" type="password" placeholder="Enter your password"
+                                required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                            <a href="/" class="btn btn-ghost">Back to home</a>
+                        </div>
+                        <div id="signin-status" class="form-status"></div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>

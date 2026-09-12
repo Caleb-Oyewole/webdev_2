@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const path = require('path');
 
 const app = express();
@@ -6,6 +7,14 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname), { index: false }));
+
+app.get('/styles.css', (req, res) => {
+    res.sendFile(path.join(__dirname, 'styles.css'));
+});
+
+app.get('/scripts.js', (req, res) => {
+    res.sendFile(path.join(__dirname, 'scripts.js'));
+});
 
 const listings = [
     {
@@ -197,6 +206,22 @@ Object.entries(htmlPages).forEach(([route, file]) => {
 
 app.get('/index.html', (req, res) => {
     res.redirect(301, '/');
+});
+
+app.get('*', (req, res, next) => {
+    const requestedPath = req.path === '/' ? 'landing.html' : req.path.replace(/^\/+/, '');
+    const normalized = requestedPath === 'index.html' ? 'landing.html' : requestedPath;
+    const candidate = path.join(__dirname, normalized);
+
+    if (normalized.endsWith('.html') && fs.existsSync(candidate)) {
+        return res.sendFile(candidate);
+    }
+
+    if (!normalized.includes('.') && fs.existsSync(path.join(__dirname, `${normalized}.html`))) {
+        return res.sendFile(path.join(__dirname, `${normalized}.html`));
+    }
+
+    next();
 });
 
 if (require.main === module) {

@@ -28,31 +28,56 @@
             </div>
         </nav>
     </header>
-    <section class="form-page">
+    <section class="page-hero listing-page">
         <div class="wrap">
-            <div class="form-shell">
-                <div class="listings-intro">
+            <div class="hero-panel page-panel">
+                <div class="page-hero-copy">
+                    <span class="eyebrow">Find your room</span>
+                    <h1>Search student housing listings</h1>
+                    <p>Use the filters below to refine your search and see live results from our current property
+                        inventory, all matched around campus life and student budgets.</p>
+                </div>
+                <div class="mini-proof-grid">
                     <div>
-                        <span class="eyebrow">Find your room</span>
-                        <h2>Search student housing listings</h2>
-                        <p>Use the filters below to refine your search and see live results from our current property
-                            inventory.</p>
+                        <strong>542+</strong>
+                        <span>rooms live</span>
+                    </div>
+                    <div>
+                        <strong>4.9</strong>
+                        <span>average rating</span>
+                    </div>
+                    <div>
+                        <strong>96%</strong>
+                        <span>happy moves</span>
                     </div>
                 </div>
-                <form id="listings-search-form">
-                    <div class="form-field">
-                        <label for="location">Location</label>
-                        <input id="location" name="location" type="text" placeholder="City, campus or building">
+            </div>
+
+            <form id="listings-search-form" class="search-bar page-search-bar">
+                <div class="search-field">
+                    <label for="location">Location</label>
+                    <input id="location" name="location" type="text" placeholder="City, campus or building">
+                </div>
+                <div class="search-field">
+                    <label for="budget">Budget (₦)</label>
+                    <input id="budget" name="budget" type="number" placeholder="Max monthly rent">
+                </div>
+                <button type="submit" class="search-btn" aria-label="Search listings">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="9" cy="9" r="6.5" stroke="white" stroke-width="2" />
+                        <path d="M18 18L14 14" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+            </form>
+
+            <div class="results-shell">
+                <div class="results-head">
+                    <div>
+                        <span class="eyebrow">Live inventory</span>
+                        <h2>Matching properties</h2>
                     </div>
-                    <div class="form-field">
-                        <label for="budget">Budget (₦)</label>
-                        <input id="budget" name="budget" type="number" placeholder="Max monthly rent">
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Search listings</button>
-                        <a href="/" class="btn btn-ghost">Back to home</a>
-                    </div>
-                </form>
+                    <a href="/" class="btn btn-ghost">Back to home</a>
+                </div>
                 <div class="form-status" id="results-count"></div>
                 <div id="search-results" class="result-list"></div>
             </div>
