@@ -181,8 +181,22 @@ app.post('/api/listings', (req, res) => {
     return res.json({ success: true, message: 'Your property has been listed successfully.', listing: newListing });
 });
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'landing.html'));
+const htmlPages = {
+    '/': 'landing.html',
+    '/landing.html': 'landing.html',
+    '/listings.html': 'listings.html',
+    '/list-property.html': 'list-property.html',
+    '/signin.html': 'signin.html'
+};
+
+Object.entries(htmlPages).forEach(([route, file]) => {
+    app.get(route, (req, res) => {
+        res.sendFile(path.join(__dirname, file));
+    });
+});
+
+app.get('/index.html', (req, res) => {
+    res.redirect(301, '/');
 });
 
 if (require.main === module) {
