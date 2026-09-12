@@ -17,7 +17,10 @@ const listings = [
         rating: 4.8,
         mediaClass: 'b1',
         location: 'Central Campus',
-        type: 'Studio'
+        type: 'Studio',
+        image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+        summary: 'Bright studio with large windows, warm wood finishes, and a quiet study nook for focused weekdays.',
+        features: ['Furnished', 'Wi‑Fi', '24/7 security']
     },
     {
         id: 2,
@@ -28,7 +31,10 @@ const listings = [
         rating: 4.6,
         mediaClass: 'b2',
         location: 'Library District',
-        type: 'Shared'
+        type: 'Shared',
+        image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80',
+        summary: 'Two-bedroom shared setup with natural light, a reading corner, and a short walk to the main library.',
+        features: ['Shared kitchen', 'Laundry', 'Water included']
     },
     {
         id: 3,
@@ -39,7 +45,10 @@ const listings = [
         rating: 4.9,
         mediaClass: 'b3',
         location: 'West Campus',
-        type: 'One Bedroom'
+        type: 'One Bedroom',
+        image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80',
+        summary: 'Contemporary one-bedroom apartment with a balcony, soft neutral finishes, and peaceful campus-side views.',
+        features: ['Balcony', 'Air con', 'Parking']
     },
     {
         id: 4,
@@ -50,7 +59,10 @@ const listings = [
         rating: 4.5,
         mediaClass: 'b4',
         location: 'North Campus',
-        type: 'Ensuite'
+        type: 'Ensuite',
+        image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=900&q=80',
+        summary: 'Comfortable ensuite room with personal bathroom access, clean finishes, and a friendly social environment.',
+        features: ['Ensuite bath', 'Housekeeping', 'Study desk']
     },
     {
         id: 5,
@@ -61,7 +73,10 @@ const listings = [
         rating: 4.7,
         mediaClass: 'b5',
         location: 'East Campus',
-        type: 'Single Room'
+        type: 'Single Room',
+        image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+        summary: 'A calm single room featuring a compact kitchenette, soft lighting, and easy access to campus transport.',
+        features: ['Furnished', 'Kitchenette', 'Fast Wi‑Fi']
     },
     {
         id: 6,
@@ -72,7 +87,10 @@ const listings = [
         rating: 4.4,
         mediaClass: 'b6',
         location: 'Campus Edge',
-        type: 'Shared'
+        type: 'Shared',
+        image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=900&q=80',
+        summary: 'Flexible shared apartment designed for student life, with easy access to campus routes and a practical layout.',
+        features: ['Shared lounge', 'Wi‑Fi', 'Close to campus']
     }
 ];
 
@@ -135,7 +153,7 @@ app.post('/api/login', (req, res) => {
 });
 
 app.post('/api/listings', (req, res) => {
-    const { title, tag, location, type, price, rating, badge } = req.body;
+    const { title, tag, location, type, price, rating, badge, image } = req.body;
     const priceValue = Number(price);
     const ratingValue = Number(rating);
 
@@ -152,7 +170,10 @@ app.post('/api/listings', (req, res) => {
         rating: ratingValue,
         mediaClass: 'b7',
         location,
-        type
+        type,
+        image: image || 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80',
+        summary: 'New student-friendly property added to the platform with a clean, modern setup and practical amenities.',
+        features: ['Verified', 'Student ready', 'Flexible move-in']
     };
 
     listings.push(newListing);

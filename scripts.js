@@ -23,13 +23,27 @@ async function postJson(url, body) {
 function createResultCard(listing) {
     const card = document.createElement('article');
     card.className = 'result-card';
+    const features = (listing.features || ['Wi‑Fi', 'Furnished', 'Safe area'])
+        .map((feature) => `<li>${feature}</li>`)
+        .join('');
+
     card.innerHTML = `
-    <div class="card-media ${listing.mediaClass}"></div>
+    <div class="card-media ${listing.mediaClass}" style="background-image: url('${listing.image || 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80'}');">
+      <span class="card-badge">${listing.badge || 'Featured'}</span>
+    </div>
     <div class="card-body">
-      <span class="tag">${listing.tag}</span>
+      <div class="card-topline">
+        <span class="tag">${listing.tag}</span>
+        <span class="card-rating">★ ${listing.rating}</span>
+      </div>
       <h3>${listing.title}</h3>
-      <div class="price">₦${listing.price.toLocaleString()}<span>/mo</span></div>
-      <div class="details">${listing.location} · ${listing.type} · ★ ${listing.rating}</div>
+      <div class="details">${listing.location} · ${listing.type}</div>
+      <p class="property-summary">${listing.summary || 'Comfortable student housing with practical amenities and a great campus connection.'}</p>
+      <ul class="property-features">${features}</ul>
+      <div class="card-footer">
+        <div class="price">₦${listing.price.toLocaleString()}<span>/mo</span></div>
+        <button type="button" class="mini-button">View details</button>
+      </div>
     </div>
   `;
     return card;
